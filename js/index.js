@@ -389,7 +389,7 @@ function createHTMLforBind(userSummary) {
     userStr += "<td>" + "<input type='text' class='inline sc-points-" + user['CreatedBy'] + "'></input></td>";
     userStr += "<td>" + "<input type='text' class='inline volume-" + user['CreatedBy'] + "'></input></td>";
     //Add score column as final row item
-    userStr += "<td>" + user['Score'] + "</td></tr>";
+    userStr += "<td>" + "<span class='score-"+ user['CreatedBy'] + "'</span></td></tr>";
     headerStr += userStr;
   })
   var closingStr = "</table>";
