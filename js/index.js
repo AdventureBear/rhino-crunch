@@ -21,8 +21,6 @@ $(function() {
     var files = $('#files')[0].files;
     var config = buildConfig();
 
-    
-     //$('#date').combodate();
     // NOTE: Chunk size does not get reset if changed and then set back to empty/default value
     if (localChunkSize)
       Papa.LocalChunkSize = localChunkSize;
@@ -79,7 +77,7 @@ $(function() {
   });
 
   $("#download-csv").click(function() {
-    console.log("CSV Downlaod Clicked");
+    console.log("CSV Download Clicked");
     downloadCSV({
       filename: "CSVData.csv"
     });
@@ -87,9 +85,12 @@ $(function() {
 
   
   $("#score").click(function(){
+    console.log("Score clicked");
     //total up score
     //So, the first five columns divide by 10, the next two (team call & SC) are just added, and the last column (volume) is divide by 50.
-  })
+
+
+  });
 
   $('#insert-tab').click(function() {
     $('#delimiter').val('\t');
@@ -244,7 +245,7 @@ function evaluateData(allData) {
   //Build array of unique users
   var uniqueUsers = [];
 
-  var uniqueUsers = records
+  uniqueUsers = records
     .map(function(obj) {
       return obj["Created By"];
     })
@@ -268,7 +269,8 @@ function evaluateData(allData) {
       'Team Call Participation (National upline team or our team)': 0,
       'Team Call Participation (National, upline team, or our team)': 0,
       'SCPoints': 0,
-      'Volume': 0
+      'Volume': 0,
+      'Score': 0
     }
     userSummary.push(obj);
   })
@@ -332,6 +334,8 @@ function evaluateData(allData) {
     bindObj[name + '.CreatedBy'] = '.created-by-' + name;
     bindObj[name + '.SCPoints'] = '.sc-points-' + name;
     bindObj[name + '.Volume'] = '.volume-' + name;
+    //add score field
+    bindObj[name + '.Score'] = '.score-' + name;
   });
 
   console.log(JSON.stringify(newSummary.ryanc));
@@ -371,7 +375,7 @@ function getMonth(obj){
 
 function createHTMLforBind(userSummary) {
   var userStr = '';
-  var headerStr = "<table class='bordered highlight'>  <thead><tr><th>User</th><th>New Contacts</th><th>Invites-Groups</th><th>Invites-Coaching</th><th>New Follow Ups</th><th>New Check-Ins</th><th>Team Call (max 3)</th><th>SC Points</th><th>Volume</th></tr>  </thead>";
+  var headerStr = "<table class='bordered highlight'>  <thead><tr><th>User</th><th>New Contacts</th><th>Invites-Groups</th><th>Invites-Coaching</th><th>New Follow Ups</th><th>New Check-Ins</th><th>Team Call (max 3)</th><th>SC Points</th><th>Volume</th><th>Score</th></tr>  </thead>";
 
 
   userSummary.forEach(function(user) {
@@ -383,7 +387,9 @@ function createHTMLforBind(userSummary) {
     userStr += "<td>" + user['New Challenger Check-Ins'] + "</td>";
     userStr += "<td>" + user['Team Call Participation (National upline team or our team)'] + "</td>";
     userStr += "<td>" + "<input type='text' class='inline sc-points-" + user['CreatedBy'] + "'></input></td>";
-    userStr += "<td>" + "<input type='text' class='inline volume-" + user['CreatedBy'] + "'></input></td></tr>";
+    userStr += "<td>" + "<input type='text' class='inline volume-" + user['CreatedBy'] + "'></input></td>";
+    //Add score column as final row item
+    userStr += "<td>" + user['Score'] + "</td></tr>";
     headerStr += userStr;
   })
   var closingStr = "</table>";
