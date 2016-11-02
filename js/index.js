@@ -112,9 +112,14 @@ $(function() {
           //Volume Divided by 50
         ( +user["Volume"]/50 );
 
-
     });
 
+    //userSummary.sort(function(a,b){
+    //  var x = +a["Score"] < +b["Score"]? -1:1;
+    //  return x;
+    //});
+
+    //createHTMLforBind(userSummary);
 
   });
 
@@ -422,7 +427,7 @@ function createHTMLforBind(userSummary) {
   var fullStr = headerStr + closingStr;
   //console.log(fullStr);
 
-  $('#uniqueUsers').append(fullStr);
+  $('#uniqueUsers').html(fullStr);
 };
 
 function sendObjToHTML(userSummary) {
