@@ -22,7 +22,7 @@ $(function() {
     var config = buildConfig();
 
     
-     $('#date').combodate();   
+     //$('#date').combodate();
     // NOTE: Chunk size does not get reset if changed and then set back to empty/default value
     if (localChunkSize)
       Papa.LocalChunkSize = localChunkSize;
