@@ -88,6 +88,32 @@ $(function() {
     console.log("Score clicked");
     //total up score
     //So, the first five columns divide by 10, the next two (team call & SC) are just added, and the last column (volume) is divide by 50.
+    //{"CreatedBy":"ryanc",
+    // "New Contacts":7,
+    // "New Invites (Challenge Groups)":8,
+    // "New Invites (Coaching Opportunity)":9,
+    // "New Follow Ups":12,
+    // "New Challenger Check-Ins":11,
+    // "Team Call Participation (National upline team or our team)":3,
+    // "SCPoints":0,
+    // "Volume":0,
+    // "Score":0}
+    userSummary.forEach(function(user){
+      user.Score =
+        //first 5 columns divided by 10
+        ( +user["New Contacts"] +
+          +user["New Invites (Challenge Groups)"] +
+          +user["New Invites (Coaching Opportunity)"] +
+          +user["New Follow Ups"] +
+          +user["New Challenger Check-Ins"] ) / 10 +
+          //Team calls & SC points full value
+        +user["Team Call Participation (National upline team or our team)"] +
+        +user["SCPoints"] +
+          //Volume Divided by 50
+        ( +user["Volume"]/50 );
+
+
+    });
 
 
   });
