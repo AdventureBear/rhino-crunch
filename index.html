@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Rhino Crunch - with bind.js</title>
+  
+  
+  <link rel='stylesheet prefetch' href='css/kgpvxz.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  
+    <img class="logo" src="http://www.teamrhinotraining.com/wp-content/uploads/2013/05/icon1.png" width="200px">
+
+    <h1><a href="http://www.teamrhinotraining.com/app/">Rhino Crunch</a></h1></div>
+
+
+  <div class="grid-25">
+    Some Options here if needed
+    <div class="config-options">
+      <label><input type="checkbox" id="download"> Download</label>
+      <label><input type="checkbox" id="stream"> Stream</label>
+      <label><input type="checkbox" id="chunk"> Chunk</label>
+      <label><input type="checkbox" id="worker"> Worker thread</label>
+      <label><input type="checkbox" id="header" checked> Header row</label>
+      <label><input type="checkbox" id="dynamicTyping"> Dynamic typing</label>
+      <label><input type="checkbox" id="fastmode"> Fast mode</label>
+      <label><input type="checkbox" id="skipEmptyLines"> Skip empty lines</label>
+      <label><input type="checkbox" id="step-pause"> Pause on step</label>
+      <label><input type="checkbox" id="print-steps"> Log each step/chunk</label>
+
+      <label>Delimiter: <input type="text" size="5" placeholder="auto" id="delimiter"> <a href="javascript:" id="insert-tab">tab</a></label> Line Endings:
+
+      <label style="display: inline;"><input type="radio" name="newline" id="newline-auto" checked>Auto</label>
+      <label style="display: inline;"><input type="radio" name="newline" id="newline-n">\n</label>
+      <label style="display: inline;"><input type="radio" name="newline" id="newline-r">\r</label>
+      <label style="display: inline;"><input type="radio" name="newline" id="newline-rn">\r\n</label>
+
+      <label>Preview: <input type="number" min="0" max="1000" placeholder="default" id="preview"></label>
+
+      <label>Encoding: <input type="text" id="encoding" placeholder="default" size="10"></label>
+
+      <label>Comment char: <input type="text" size="5" maxlength="1" placeholder="default" id="comments"></label>
+
+      <label>Papa.LocalChunkSize: <input type="number" min="0" placeholder="default" id="localChunkSize"></label>
+
+      <label>Papa.RemoteChunkSize: <input type="number" min="0" placeholder="default" id="remoteChunkSize"></label>
+    </div>
+  </div>
+  <div class="grid-100 text-center">
+    <input type="file" name="file" id="files" class="inputfile" />
+    <label for="files"><span class="glyphicon glyphicon-open" aria-hidden="true"></span> Choose a file...</label>
+    <br><br>
+    <button id="submit-parse">Upload</button> &nbsp;
+    <!--<button id="submit-unparse">Unparse</button>-->
+    <button id="download-csv">Download</button>
+    <br><br>
+    
+    <i>Open the Console in your browser's inspector tools to debug.</i>
+    <br><br>
+
+
+    <div id="uniqueUsers">
+
+    </div>
+    <div id="object"></div>
+  </div>
+<div id="month picker">
+    <input type="text" id="date" data-format="DD-MM-YYYY" data-template="D MMM YYYY" name="date" value="09-01-2013">
+
+    </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js'></script>
+<script src='https://rawgit.com/remy/bind.js/master/dist/bind.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js'></script>
+<script src='js/maqrej.js'></script>
+
+      <script src="js/index.js"></script>
+
+</body>
+</html>
